@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useCallback, useState } from 'react';
+import useDarkTheme from "./hooks/useDarkTheme/useDarkTheme";
+import Card from "./components/Card/Card";
+import ThemeSwitch from "./components/ThemeSwitch/ThemeSwitch";
+import './App.scss';
 
 function App() {
+  const {switchTheme, theme, isDark} = useDarkTheme();
+  const [value, setValue] = useState(isDark);
+
+  const onSwitchToggle = useCallback(()=> {
+    switchTheme();
+    setValue(!value)
+  }, [value])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App' data-theme={theme}>
+      <ThemeSwitch isOn={value} handleToggle={onSwitchToggle}/>
+      <Card/>
     </div>
-  );
+  )
 }
 
 export default App;

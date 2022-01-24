@@ -1,0 +1,23 @@
+:root {
+  --card-bg: #1A1B21;
+  --footer-bg: #303035;
+  --text-color: #FFFFFF;
+  --text-secondary: #F3BF99;
+  --button-bg: #5093E2;
+  --icons-color: #918e9b;
+}
+
+[data-theme='dark'] {
+  --card-bg: #F5F5F5;
+  --footer-bg: #D5D4D8;
+  --text-color: #2B283A;
+  --text-secondary: #F47D27;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
